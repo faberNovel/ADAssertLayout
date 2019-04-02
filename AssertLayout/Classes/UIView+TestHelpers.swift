@@ -26,7 +26,7 @@ extension UIView {
     public func ad_runBasicRecursiveTests(using context: LayoutTestContext = .base) throws {
         let view = viewForSubviewTesting()
         guard view == self else {
-            try view.ad_runBasicRecursiveTests()
+            try view.ad_runBasicRecursiveTests(using: context)
             return
         }
 

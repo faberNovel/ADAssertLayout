@@ -32,6 +32,21 @@ class ViewBasicTestTests: XCTestCase {
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 
+    func testOverlapingTableViewCell() {
+        var context = LayoutTestContext.base
+        context.isAmbiguousLayoutTestEnabled = false
+        let view = ViewFactory.createOverlapingTableViewCell()
+        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    func testOverlapingTableViewCellNoError() {
+        var context = LayoutTestContext.base
+        context.isViewOverlapTestEnabled = false
+        context.isAmbiguousLayoutTestEnabled = false
+        let view = ViewFactory.createOverlapingTableViewCell()
+        XCTAssertNoThrow(try view.contentView.ad_runBasicRecursiveTests(using: context))
+    }
+
     func testOverlapingViewsHidden() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createOverlapingView()
