@@ -12,6 +12,8 @@
 		49A74656224CB80D00E5C42B /* ViewWithinSuperviewBoundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */; };
 		49A74658224CC03200E5C42B /* SubviewOverlapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */; };
 		49A7465E224CC5B500E5C42B /* ViewTraverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */; };
+		49CDA0B1225200A500EB9BF8 /* ViewBasicTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDA0B0225200A500EB9BF8 /* ViewBasicTestTests.swift */; };
+		49CDA0B32252038B00EB9BF8 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDA0B22252038B00EB9BF8 /* ViewFactory.swift */; };
 		4A764246584151D541D70B78 /* Pods_AssertLayout_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E9DED36B8139A059109877 /* Pods_AssertLayout_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithinSuperviewBoundsTests.swift; sourceTree = "<group>"; };
 		49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewOverlapTests.swift; sourceTree = "<group>"; };
 		49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTraverseTests.swift; sourceTree = "<group>"; };
+		49CDA0B0225200A500EB9BF8 /* ViewBasicTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBasicTestTests.swift; sourceTree = "<group>"; };
+		49CDA0B22252038B00EB9BF8 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		5C08E69B04F4468E65B1A41E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AssertLayout_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssertLayout_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */,
 				49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */,
 				49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */,
+				49CDA0B0225200A500EB9BF8 /* ViewBasicTestTests.swift */,
+				49CDA0B22252038B00EB9BF8 /* ViewFactory.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -353,8 +359,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A7465E224CC5B500E5C42B /* ViewTraverseTests.swift in Sources */,
+				49CDA0B32252038B00EB9BF8 /* ViewFactory.swift in Sources */,
 				49A74658224CC03200E5C42B /* SubviewOverlapTests.swift in Sources */,
 				49A7464F224BD53A00E5C42B /* FrameComparisonTests.swift in Sources */,
+				49CDA0B1225200A500EB9BF8 /* ViewBasicTestTests.swift in Sources */,
 				49A74656224CB80D00E5C42B /* ViewWithinSuperviewBoundsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
