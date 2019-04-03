@@ -1,5 +1,5 @@
 //
-//  UIView+TestHelpers.swift
+//  UIView+LayoutTest.swift
 //  AssertLayout
 //
 //  Created by Pierre Felgines on 01/04/2019.
