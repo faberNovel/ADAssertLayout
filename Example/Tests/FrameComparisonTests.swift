@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import XCTest
-import AssertLayout
+@testable import AssertLayout
 
 class FrameComparisonTests: XCTestCase {
 

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
 
-    public var ad_top: CGFloat {
+    var ad_top: CGFloat {
         get {
             return frame.origin.y
         }
@@ -21,7 +21,7 @@ extension UIView {
         }
     }
 
-    public var ad_bottom: CGFloat {
+    var ad_bottom: CGFloat {
         get {
             return frame.origin.y + frame.height
         }
@@ -30,7 +30,7 @@ extension UIView {
         }
     }
 
-    public var ad_left: CGFloat {
+    var ad_left: CGFloat {
         get {
             return frame.origin.x
         }
@@ -41,7 +41,7 @@ extension UIView {
         }
     }
 
-    public var ad_right: CGFloat {
+    var ad_right: CGFloat {
         get {
             return frame.origin.x + frame.width
         }
@@ -50,7 +50,7 @@ extension UIView {
         }
     }
 
-    public var ad_width: CGFloat {
+    var ad_width: CGFloat {
         get {
             return frame.width
         }
@@ -61,7 +61,7 @@ extension UIView {
         }
     }
 
-    public var ad_height: CGFloat {
+    var ad_height: CGFloat {
         get {
             return frame.height
         }
