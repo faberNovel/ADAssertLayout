@@ -1,0 +1,16 @@
+PODS:
+  - AssertLayout (0.1.0)
+
+DEPENDENCIES:
+  - AssertLayout (from `../`)
+
+EXTERNAL SOURCES:
+  AssertLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AssertLayout: f06bbec6478392af7cbb96aa9b302efb6e671ff0
+
+PODFILE CHECKSUM: dc15e88ef6d3efee87785678b2f2a3fcc800a59d
+
+COCOAPODS: 1.6.1
