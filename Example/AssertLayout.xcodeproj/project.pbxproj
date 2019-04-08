@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		179521D49A3C28581B10AF9C /* Pods_AssertLayout_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAC9CCD6AFDAC60BB22C8C6 /* Pods_AssertLayout_Example.framework */; };
+		49A7464F224BD53A00E5C42B /* FrameComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7464D224BD4FC00E5C42B /* FrameComparisonTests.swift */; };
+		49A74656224CB80D00E5C42B /* ViewWithinSuperviewBoundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */; };
+		49A74658224CC03200E5C42B /* SubviewOverlapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */; };
+		49A7465E224CC5B500E5C42B /* ViewTraverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */; };
 		4A764246584151D541D70B78 /* Pods_AssertLayout_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E9DED36B8139A059109877 /* Pods_AssertLayout_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -30,6 +34,10 @@
 		0CAC9CCD6AFDAC60BB22C8C6 /* Pods_AssertLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssertLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E9DED36B8139A059109877 /* Pods_AssertLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssertLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5A64C76BF56CE159A2AA93 /* Pods-AssertLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssertLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-AssertLayout_Example/Pods-AssertLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		49A7464D224BD4FC00E5C42B /* FrameComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameComparisonTests.swift; sourceTree = "<group>"; };
+		49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithinSuperviewBoundsTests.swift; sourceTree = "<group>"; };
+		49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewOverlapTests.swift; sourceTree = "<group>"; };
+		49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTraverseTests.swift; sourceTree = "<group>"; };
 		5C08E69B04F4468E65B1A41E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AssertLayout_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssertLayout_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +131,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				49A7464D224BD4FC00E5C42B /* FrameComparisonTests.swift */,
+				49A74654224CB71D00E5C42B /* ViewWithinSuperviewBoundsTests.swift */,
+				49A74657224CC03200E5C42B /* SubviewOverlapTests.swift */,
+				49A7465D224CC5B500E5C42B /* ViewTraverseTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
+				1C3C69E3AC5A7C53EB84768E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,6 +270,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C3C69E3AC5A7C53EB84768E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AssertLayout_Example/Pods-AssertLayout_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AssertLayout/AssertLayout.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AssertLayout.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AssertLayout_Example/Pods-AssertLayout_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		991A4AC39C39A4A580F8CD71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A7465E224CC5B500E5C42B /* ViewTraverseTests.swift in Sources */,
+				49A74658224CC03200E5C42B /* SubviewOverlapTests.swift in Sources */,
+				49A7464F224BD53A00E5C42B /* FrameComparisonTests.swift in Sources */,
+				49A74656224CB80D00E5C42B /* ViewWithinSuperviewBoundsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
