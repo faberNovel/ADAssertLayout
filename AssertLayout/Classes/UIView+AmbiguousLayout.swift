@@ -8,8 +8,10 @@
 import Foundation
 import UIKit
 
+/// The error thrown if a view has an ambiguous layout.
 public struct AmbiguousLayoutError: LocalizedError {
 
+    /// The view that has an ambiguous layout.
     public let view: UIView
 
     // MARK: - LocalizedError
@@ -21,6 +23,9 @@ public struct AmbiguousLayoutError: LocalizedError {
 
 extension UIView {
 
+    /// Ensures that `self` has not an ambiguous layout.
+    ///
+    /// An error is thrown if the condition breaks.
     public func ad_assertNoAmbiguousLayout() throws {
         if hasAmbiguousLayout {
             throw AmbiguousLayoutError(view: self)

@@ -8,12 +8,17 @@
 import Foundation
 import UIKit
 
+/// The error thrown if a two sibling views are overlaping.
 public struct OverlapError: LocalizedError {
+
+    /// The left most subview to overlap.
     public let leftMostSubview: UIView
+
+    /// The right most subview to overlap.
     public let rightMostSubview: UIView
 
+    /// Sorts `subview1` and `subview2` such as `subview1` is on the left.
     init(subview1: UIView, subview2: UIView) {
-        // Sorting subview1 and subview2 so subview1 is on the left.
         if subview1.ad_left > subview2.ad_left {
             self.leftMostSubview = subview2
             self.rightMostSubview = subview1
@@ -38,6 +43,9 @@ public struct OverlapError: LocalizedError {
 
 extension UIView {
 
+    /// Ensures that all direct subviews of `self` are not overlaping.
+    ///
+    /// An error is thrown if the condition breaks.
     public func ad_assertSubviewsAreNotOverlaping() throws {
         try (0..<subviews.count).forEach { i in
             let subview1 = subviews[i]
@@ -56,6 +64,9 @@ extension UIView {
         }
     }
 
+    /// Recursively ensures that all direct subviews of `self` are not overlaping.
+    ///
+    /// An error is thrown if the condition breaks.
     public func ad_recursiveAssertSubviewsAreNotOverlaping() throws {
         try ad_recursiveTraverseViewHierarchy {
             try $0.ad_assertSubviewsAreNotOverlaping()

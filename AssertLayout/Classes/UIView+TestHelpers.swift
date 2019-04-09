@@ -8,25 +8,54 @@
 import Foundation
 import UIKit
 
+/// Configuration object that defines the behavior of a layout test.
+///
+/// Use `LayoutTestContext.base` context as a base to create custom context.
 public struct LayoutTestContext {
 
+    /// The default context, with predefined values.
     public static let base = LayoutTestContext()
 
+    /// Defines if an overlaping test is performed.
+    ///
+    /// Default value: `true`.
     public var isViewOverlapTestEnabled = true
+
+    /// Defines if a test on superview bounds is performed.
+    ///
+    /// Default value: `true`.
     public var isViewWithinSuperviewBoundsTestEnabled = true
+
+    /// Defines if an ambiguous layout test is performed.
+    ///
+    /// Default value: `true`.
     public var isAmbiguousLayoutTestEnabled = true
 
-    // Issues with overlaping internal subviews of UITextField
-    // i.e _UITextFieldRoundedRectBackgroundViewNeue and UITextFieldLabel
+    /// Names of the view classes that should be skipped during the recursive test.
+    ///
+    /// For instance, there are overlaping issues with internal subviews of UITextField
+    /// i.e `_UITextFieldRoundedRectBackgroundViewNeue` and `UITextFieldLabel`.
+    ///
+    /// Default value: `["UITextField"]`.
     public var viewClassNamesToSkip = Set<String>(["UITextField"])
 
+    /// Set of views allowed to overlap.
     public var allowedOverlapingViews = Set<UIView>()
+
+    /// Set of views allowed to be out of superview's bounds.
     public var allowedFrameOutOfSuperviewViews = Set<UIView>()
+
+    /// Set of views allowed to have ambiguous layout.
     public var allowedAmbiguousLayoutViews = Set<UIView>()
 }
 
 extension UIView {
 
+    /// Run a default layout test suite, based on the context provided.
+    ///
+    /// - parameter context: The context that enable / disable somes of the tests.
+    ///
+    /// An error is throw if one of the layout assertion fails.
     public func ad_runBasicRecursiveTests(using context: LayoutTestContext = .base) throws {
         let view = viewForSubviewTesting()
         guard view == self else {

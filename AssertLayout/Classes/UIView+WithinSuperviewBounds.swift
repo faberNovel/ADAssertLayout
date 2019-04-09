@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// The error thrown if a view is not within its superview bounds.
 public struct AssertFrameViewError: LocalizedError {
 
     public enum Reason {
@@ -17,7 +18,9 @@ public struct AssertFrameViewError: LocalizedError {
         case bottomGreaterThanSuperview
     }
 
+    /// The view that is not within its superview bounds.
     public let view: UIView
+    /// The reason of the error.
     public let reason: Reason
 
     // MARK: - LocalizedError
@@ -39,6 +42,11 @@ public struct AssertFrameViewError: LocalizedError {
 
 extension UIView {
 
+    /// Ensures that `self` is within the bounds of its superview.
+    ///
+    /// This function has no effect if there is no superview.
+    ///
+    /// An error is thrown if the condition breaks.
     public func ad_assertIsWithinSuperviewBounds() throws {
         guard let superview = superview else { return }
         if frame.origin.x < -UIView.ad_epsilon {
@@ -55,6 +63,11 @@ extension UIView {
         }
     }
 
+    /// Recursively ensures that `self` and all its subviews are within the bounds of their superviews.
+    ///
+    /// This function has no effect if there is no superview.
+    ///
+    /// An error is thrown if the condition breaks.
     public func ad_recursiveAssertViewIsWithinSuperviewBounds() throws {
         try ad_recursiveTraverseViewHierarchy {
             try $0.ad_assertIsWithinSuperviewBounds()
