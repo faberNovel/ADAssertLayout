@@ -14,6 +14,7 @@ public struct LayoutTestContext {
 
     public var isViewOverlapTestEnabled = true
     public var isViewWithinSuperviewBoundsTestEnabled = true
+    public var isAmbiguousLayoutTestEnabled = true
 
     // Issues with overlaping internal subviews of UITextField
     // i.e _UITextFieldRoundedRectBackgroundViewNeue and UITextFieldLabel
@@ -45,6 +46,9 @@ extension UIView {
             }
             if context.isViewOverlapTestEnabled {
                 try view.ad_assertSubviewsAreNotOverlaping()
+            }
+            if context.isAmbiguousLayoutTestEnabled {
+                try view.ad_assertNoAmbiguousLayout()
             }
         }
     }

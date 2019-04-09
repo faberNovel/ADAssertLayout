@@ -54,4 +54,16 @@ class ViewFactory {
         view2.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return superview
     }
+
+    static func createAmbiguousLayoutView() -> UIView {
+        let view1 = UIView()
+        let superview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+        view1.translatesAutoresizingMaskIntoConstraints = false
+        superview.addSubview(view1)
+        view1.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+        // It seems that adding a window here is the only way to trigger the ambiguous layout
+        let window = UIWindow()
+        window.addSubview(superview)
+        return superview
+    }
 }

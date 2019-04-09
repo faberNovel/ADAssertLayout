@@ -57,4 +57,17 @@ class ViewBasicTestTests: XCTestCase {
         let view = ViewFactory.createOverlapingErrorView()
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
+
+    func testAmbiguousLayoutView() {
+        let context = LayoutTestContext.base
+        let view = ViewFactory.createAmbiguousLayoutView()
+        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    func testAmbiguousLayoutViewNoError() {
+        var context = LayoutTestContext.base
+        context.isAmbiguousLayoutTestEnabled = false
+        let view = ViewFactory.createAmbiguousLayoutView()
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
 }
