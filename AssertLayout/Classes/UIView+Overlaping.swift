@@ -43,6 +43,9 @@ extension UIView {
             let subview1 = subviews[i]
             try (i + 1..<subviews.count).forEach { j in
                 let subview2 = subviews[j]
+                guard !subview1.isHidden, !subview2.isHidden else {
+                    return
+                }
                 if subview1.ad_bottom > subview2.ad_top + UIView.ad_epsilon
                     && subview1.ad_right > subview2.ad_left + UIView.ad_epsilon
                     && subview2.ad_bottom > subview1.ad_top + UIView.ad_epsilon

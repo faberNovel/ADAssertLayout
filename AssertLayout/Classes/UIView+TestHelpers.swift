@@ -32,15 +32,10 @@ extension UIView {
 
         try ad_recursiveTraverseViewHierarchy(
             traverseSubviews: { subview in
-                let subviewClassName = String(describing: type(of: subview))
-                return !subview.isHidden
-                    && !context.viewClassNamesToSkip.contains(subviewClassName)
+                subview.isValidForTesting(in: context)
             }
         ) { view in
-            let viewClassName = String(describing: type(of: view))
-            guard !context.viewClassNamesToSkip.contains(viewClassName) else {
-                return
-            }
+            guard view.isValidForTesting(in: context) else { return }
             if context.isViewWithinSuperviewBoundsTestEnabled {
                 try view.ad_assertIsWithinSuperviewBounds()
             }
@@ -63,5 +58,10 @@ extension UIView {
             return collectionViewCell.contentView
         }
         return self
+    }
+
+    private func isValidForTesting(in context: LayoutTestContext) -> Bool {
+        let className = String(describing: type(of: self))
+        return !isHidden && !context.viewClassNamesToSkip.contains(className)
     }
 }

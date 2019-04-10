@@ -32,10 +32,33 @@ class ViewBasicTestTests: XCTestCase {
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 
+    func testOverlapingViewsHidden() {
+        let context = LayoutTestContext.base
+        let view = ViewFactory.createOverlapingView()
+        XCTAssertEqual(view.subviews.count, 2)
+        view.subviews.first?.isHidden = true
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
     func testSubviewOutOfSuperview() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createSubviewOutOfSuperviewView()
         XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    func testSubviewOutOfSuperviewHidden() {
+        let context = LayoutTestContext.base
+        let view = ViewFactory.createSubviewOutOfSuperviewView()
+        XCTAssertEqual(view.subviews.count, 2)
+        view.subviews.first?.isHidden = true
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    func testSubviewOutOfSuperviewWithSuperviewHidden() {
+        let context = LayoutTestContext.base
+        let view = ViewFactory.createSubviewOutOfSuperviewView()
+        view.isHidden = true
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testSubviewOutOfSuperviewNoError() {
