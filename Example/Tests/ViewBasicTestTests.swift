@@ -22,7 +22,7 @@ class ViewBasicTestTests: XCTestCase {
     func testOverlapingViews() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createOverlapingView()
-        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+        assertThrowOverlapError(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testOverlapingViewsNoError() {
@@ -45,7 +45,7 @@ class ViewBasicTestTests: XCTestCase {
         var context = LayoutTestContext.base
         context.isAmbiguousLayoutTestEnabled = false
         let view = ViewFactory.createOverlapingTableViewCell()
-        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+        assertThrowOverlapError(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testOverlapingTableViewCellNoError() {
@@ -67,7 +67,7 @@ class ViewBasicTestTests: XCTestCase {
     func testSubviewOutOfSuperview() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createSubviewOutOfSuperviewView()
-        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+        assertThrowFrameError(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testSubviewOutOfSuperviewHidden() {
@@ -104,7 +104,7 @@ class ViewBasicTestTests: XCTestCase {
     func testOverlapingErrorViews() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createOverlapingErrorView()
-        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+        assertThrowOverlapError(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testOverlapingErrorViewsNoError() {
@@ -117,7 +117,7 @@ class ViewBasicTestTests: XCTestCase {
     func testAmbiguousLayoutView() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createAmbiguousLayoutView()
-        XCTAssertThrowsError(try view.ad_runBasicRecursiveTests(using: context))
+        assertThrowAmbiguousLayoutError(try view.ad_runBasicRecursiveTests(using: context))
     }
 
     func testAmbiguousLayoutViewNoError() {
@@ -136,5 +136,39 @@ class ViewBasicTestTests: XCTestCase {
             context.allowedAmbiguousLayoutViews.insert(subview)
         }
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    // MARK: - Private
+
+    private func assertThrowOverlapError<T>(_ expression: @autoclosure () throws -> T,
+                                            file: StaticString = #file,
+                                            line: UInt = #line) {
+        assertThrow(expression, errorType: OverlapError.self, file: file, line: line)
+    }
+
+    private func assertThrowAmbiguousLayoutError<T>(_ expression: @autoclosure () throws -> T,
+                                                    file: StaticString = #file,
+                                                    line: UInt = #line) {
+        assertThrow(expression, errorType: AmbiguousLayoutError.self, file: file, line: line)
+    }
+
+    private func assertThrowFrameError<T>(_ expression: @autoclosure () throws -> T,
+                                          file: StaticString = #file,
+                                          line: UInt = #line) {
+        assertThrow(expression, errorType: AssertFrameViewError.self, file: file, line: line)
+    }
+
+    private func assertThrow<T, E>(_ expression: @autoclosure () throws -> T,
+                                   errorType: E.Type,
+                                   file: StaticString = #file,
+                                   line: UInt = #line) {
+        XCTAssertThrowsError(expression, file: file, line: line) { (error) in
+            XCTAssert(
+                error is E,
+                "An error is thrown but is not of type \(String(describing: E.self))",
+                file: file,
+                line: line
+            )
+        }
     }
 }
