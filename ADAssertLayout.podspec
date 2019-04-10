@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/applidium/ADAssertLayout'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Pierre Felgines'
-  s.source           = { :git => 'https://github.com/applidium/ADAssertLayout.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/applidium/ADAssertLayout.git', :tag => "v#{s.version}" }
   s.swift_version = '4.2'
   s.ios.deployment_target = '9.0'
   s.source_files = 'ADAssertLayout/Classes/**/*'
