@@ -19,6 +19,10 @@ public struct LayoutTestContext {
     // Issues with overlaping internal subviews of UITextField
     // i.e _UITextFieldRoundedRectBackgroundViewNeue and UITextFieldLabel
     public var viewClassNamesToSkip = Set<String>(["UITextField"])
+
+    public var allowedOverlapingViews = Set<UIView>()
+    public var allowedFrameOutOfSuperviewViews = Set<UIView>()
+    public var allowedAmbiguousLayoutViews = Set<UIView>()
 }
 
 extension UIView {
@@ -36,14 +40,29 @@ extension UIView {
             }
         ) { view in
             guard view.isValidForTesting(in: context) else { return }
-            if context.isViewWithinSuperviewBoundsTestEnabled {
-                try view.ad_assertIsWithinSuperviewBounds()
-            }
-            if context.isViewOverlapTestEnabled {
-                try view.ad_assertSubviewsAreNotOverlaping()
-            }
-            if context.isAmbiguousLayoutTestEnabled {
-                try view.ad_assertNoAmbiguousLayout()
+            do {
+                if context.isViewWithinSuperviewBoundsTestEnabled {
+                    try view.ad_assertIsWithinSuperviewBounds()
+                }
+                if context.isViewOverlapTestEnabled {
+                    try view.ad_assertSubviewsAreNotOverlaping()
+                }
+                if context.isAmbiguousLayoutTestEnabled {
+                    try view.ad_assertNoAmbiguousLayout()
+                }
+            } catch let overlapError as OverlapError {
+                guard context.allowedOverlapingViews.contains(overlapError.leftMostSubview)
+                    || context.allowedOverlapingViews.contains(overlapError.rightMostSubview) else {
+                        throw overlapError
+                }
+            } catch let frameError as AssertFrameViewError {
+                guard context.allowedFrameOutOfSuperviewViews.contains(frameError.view) else {
+                    throw frameError
+                }
+            } catch let ambiguousLayoutError as AmbiguousLayoutError {
+                guard context.allowedAmbiguousLayoutViews.contains(ambiguousLayoutError.view) else {
+                    throw ambiguousLayoutError
+                }
             }
         }
     }

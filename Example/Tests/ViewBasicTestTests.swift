@@ -32,6 +32,15 @@ class ViewBasicTestTests: XCTestCase {
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 
+    func testOverlapingViewsAllowedView() {
+        let view = ViewFactory.createOverlapingView()
+        var context = LayoutTestContext.base
+        if let subview = view.subviews.first {
+            context.allowedOverlapingViews.insert(subview)
+        }
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
     func testOverlapingTableViewCell() {
         var context = LayoutTestContext.base
         context.isAmbiguousLayoutTestEnabled = false
@@ -83,6 +92,15 @@ class ViewBasicTestTests: XCTestCase {
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 
+    func testSubviewOutOfSuperviewAllowedView() {
+        let view = ViewFactory.createSubviewOutOfSuperviewView()
+        var context = LayoutTestContext.base
+        if let subview = view.subviews.first {
+            context.allowedFrameOutOfSuperviewViews.insert(subview)
+        }
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
     func testOverlapingErrorViews() {
         let context = LayoutTestContext.base
         let view = ViewFactory.createOverlapingErrorView()
@@ -106,6 +124,17 @@ class ViewBasicTestTests: XCTestCase {
         var context = LayoutTestContext.base
         context.isAmbiguousLayoutTestEnabled = false
         let view = ViewFactory.createAmbiguousLayoutView()
+        XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
+    }
+
+    func testAmbiguousLayoutViewAllowedView() {
+        let view = ViewFactory.createAmbiguousLayoutView()
+        var context = LayoutTestContext.base
+        if let subview = view.subviews.first {
+            // If we authorize `view` for ambiguous layout, its subviews will trigger it
+            context.allowedAmbiguousLayoutViews.insert(view)
+            context.allowedAmbiguousLayoutViews.insert(subview)
+        }
         XCTAssertNoThrow(try view.ad_runBasicRecursiveTests(using: context))
     }
 }
