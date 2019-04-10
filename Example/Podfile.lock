@@ -1,0 +1,16 @@
+PODS:
+  - ADAssertLayout (0.1.0)
+
+DEPENDENCIES:
+  - ADAssertLayout (from `../`)
+
+EXTERNAL SOURCES:
+  ADAssertLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ADAssertLayout: d38a399e7dec2cf6bb2afc7a373d768270be7b43
+
+PODFILE CHECKSUM: 5c95cdd12afa3145ccd90eb33c5b8913b5357d6c
+
+COCOAPODS: 1.6.1
