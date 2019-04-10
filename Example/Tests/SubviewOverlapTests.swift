@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import XCTest
-import AssertLayout
+import ADAssertLayout
 
 class SubviewOverlapTests: XCTestCase {
 

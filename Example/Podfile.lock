@@ -1,16 +1,16 @@
 PODS:
-  - AssertLayout (0.1.0)
+  - ADAssertLayout (0.1.0)
 
 DEPENDENCIES:
-  - AssertLayout (from `../`)
+  - ADAssertLayout (from `../`)
 
 EXTERNAL SOURCES:
-  AssertLayout:
+  ADAssertLayout:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AssertLayout: f06bbec6478392af7cbb96aa9b302efb6e671ff0
+  ADAssertLayout: d38a399e7dec2cf6bb2afc7a373d768270be7b43
 
-PODFILE CHECKSUM: dc15e88ef6d3efee87785678b2f2a3fcc800a59d
+PODFILE CHECKSUM: 5c95cdd12afa3145ccd90eb33c5b8913b5357d6c
 
 COCOAPODS: 1.6.1

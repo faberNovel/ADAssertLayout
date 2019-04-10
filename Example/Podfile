@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'AssertLayout_Example' do
-  pod 'AssertLayout', :path => '../'
+  pod 'ADAssertLayout', :path => '../'
 
   target 'AssertLayout_Tests' do
     inherit! :search_paths
