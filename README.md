@@ -1,8 +1,8 @@
 # ADAssertLayout
 
-[![Version](https://img.shields.io/cocoapods/v/AssertLayout.svg?style=flat)](https://cocoapods.org/pods/AssertLayout)
-[![License](https://img.shields.io/cocoapods/l/AssertLayout.svg?style=flat)](https://cocoapods.org/pods/AssertLayout)
-[![Platform](https://img.shields.io/cocoapods/p/AssertLayout.svg?style=flat)](https://cocoapods.org/pods/AssertLayout)
+[![Version](https://img.shields.io/cocoapods/v/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
+[![License](https://img.shields.io/cocoapods/l/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
+[![Platform](https://img.shields.io/cocoapods/p/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
 
 ADAssertLayout is a set of helpers to make layout assertions on `UIView`. The project is a Swift port of LinkedIn library [LayoutTest-iOS](https://github.com/linkedin/LayoutTest-iOS).
 
@@ -25,15 +25,6 @@ ADAssertLayout is a set of helpers to make layout assertions on `UIView`. The pr
 
 - iOS 9.0+
 - Swift 4.2
-
-## Communication
-
-- If you **need help**, use [Twitter](https://twitter.com/applidium).
-- If you'd like to **ask a general question**, use [Twitter](https://twitter.com/applidium).
-- If you'd like to **apply for a job**, [email us](jobs@applidium.com).
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
 
 ## Installation
 
@@ -63,10 +54,18 @@ Then, run the following command:
 $ pod install
 ```
 
+## Communication
+
+- If you **need help**, use [Twitter](https://twitter.com/applidium).
+- If you'd like to **ask a general question**, use [Twitter](https://twitter.com/applidium).
+- If you'd like to **apply for a job**, [email us](jobs@applidium.com).
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
 ## Credits
 
 ADAssertLayout is owned and maintained by [Fabernovel Technologies](https://technologies.fabernovel.com/). You can follow us on Twitter at [@applidium](https://twitter.com/applidium).
-
 
 ## License
 
