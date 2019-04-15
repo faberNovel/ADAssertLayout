@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ADAssertLayout: d38a399e7dec2cf6bb2afc7a373d768270be7b43
+  ADAssertLayout: bb52c24de5c1e320cef2460c9df427e95033435c
 
 PODFILE CHECKSUM: 5c95cdd12afa3145ccd90eb33c5b8913b5357d6c
 
