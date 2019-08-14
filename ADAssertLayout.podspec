@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ADAssertLayout'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'UIView helpers to make assertions on layout.'
   s.homepage         = 'https://github.com/applidium/ADAssertLayout'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

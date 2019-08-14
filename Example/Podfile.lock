@@ -1,5 +1,5 @@
 PODS:
-  - ADAssertLayout (0.1.0)
+  - ADAssertLayout (0.1.1)
 
 DEPENDENCIES:
   - ADAssertLayout (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ADAssertLayout: e0881e377024af7bf3bb4f6e00b6db196011aa77
+  ADAssertLayout: 16cbedb793805d416fecbf1291618a5c5f89ae13
 
 PODFILE CHECKSUM: 5c95cdd12afa3145ccd90eb33c5b8913b5357d6c
 
