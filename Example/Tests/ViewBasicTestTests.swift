@@ -147,8 +147,8 @@ class ViewBasicTestTests: XCTestCase {
     }
 
     private func assertThrowOverlapError2<T>(_ expression: @autoclosure () throws -> T,
-                                            file: StaticString = #file,
-                                            line: UInt = #line) {
+                                             file: StaticString = #file,
+                                             line: UInt = #line) {
         assertThrow(try expression(), errorType: OverlapError.self, file: file, line: line)
     }
 

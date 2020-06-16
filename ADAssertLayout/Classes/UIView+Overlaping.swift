@@ -37,7 +37,8 @@ public struct OverlapError: LocalizedError {
         let leftMessage = leftMostSubview.ad_top > rightMostSubview.ad_top
             ? "bottom"
             : "upper"
-        return "\(rightMessage) right corner of \(leftMostSubview.ad_viewName) overlaps \(leftMessage) left corner of \(rightMostSubview.ad_viewName)."
+        return "\(rightMessage) right corner of \(leftMostSubview.ad_viewName) "
+            + "overlaps \(leftMessage) left corner of \(rightMostSubview.ad_viewName)."
     }
 }
 

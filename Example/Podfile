@@ -3,6 +3,7 @@ platform :ios, '10.0'
 
 target 'AssertLayout_Example' do
   pod 'ADAssertLayout', :path => '../'
+  pod 'SwiftLint', '~> 0.39'
 
   target 'AssertLayout_Tests' do
     inherit! :search_paths

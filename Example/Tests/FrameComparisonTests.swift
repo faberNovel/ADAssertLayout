@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 @testable import ADAssertLayout
 
+// swiftlint:disable implicitly_unwrapped_optional
+
 class FrameComparisonTests: XCTestCase {
 
     private var superView: UIView!
@@ -65,7 +67,6 @@ class FrameComparisonTests: XCTestCase {
         XCTAssertTrue(innerSubview2.ad_isAfter(innerSubview1))
         innerSubview2.ad_left = 4.0
         XCTAssertTrue(innerSubview2.ad_isAfter(innerSubview1, fromCenter: true))
-
 
         // Failure expected
         innerSubview2.ad_left = 4.0

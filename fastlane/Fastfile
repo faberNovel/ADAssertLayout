@@ -8,3 +8,13 @@ lane :tests do
     devices: ["iPhone 8"]
   )
 end
+
+desc "Linting"
+lane :lint do
+  swiftlint(
+      mode: :lint,
+      config_file: "Example/.swiftlint.yml",
+      strict: true,
+      executable: "Example/Pods/SwiftLint/swiftlint"
+  )
+end
