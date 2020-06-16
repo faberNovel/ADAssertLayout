@@ -18,3 +18,9 @@ lane :lint do
       executable: "Example/Pods/SwiftLint/swiftlint"
   )
 end
+
+desc "CI Check"
+lane :ci_check do
+  tests
+  lint
+end

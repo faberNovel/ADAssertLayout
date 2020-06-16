@@ -25,6 +25,11 @@ Run all unit tests
 fastlane lint
 ```
 Linting
+### ci_check
+```
+fastlane ci_check
+```
+CI Check
 
 ----
 
