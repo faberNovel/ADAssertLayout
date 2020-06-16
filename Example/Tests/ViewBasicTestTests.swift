@@ -143,26 +143,32 @@ class ViewBasicTestTests: XCTestCase {
     private func assertThrowOverlapError<T>(_ expression: @autoclosure () throws -> T,
                                             file: StaticString = #file,
                                             line: UInt = #line) {
-        assertThrow(expression, errorType: OverlapError.self, file: file, line: line)
+        assertThrow(try expression(), errorType: OverlapError.self, file: file, line: line)
+    }
+
+    private func assertThrowOverlapError2<T>(_ expression: @autoclosure () throws -> T,
+                                             file: StaticString = #file,
+                                             line: UInt = #line) {
+        assertThrow(try expression(), errorType: OverlapError.self, file: file, line: line)
     }
 
     private func assertThrowAmbiguousLayoutError<T>(_ expression: @autoclosure () throws -> T,
                                                     file: StaticString = #file,
                                                     line: UInt = #line) {
-        assertThrow(expression, errorType: AmbiguousLayoutError.self, file: file, line: line)
+        assertThrow(try expression(), errorType: AmbiguousLayoutError.self, file: file, line: line)
     }
 
     private func assertThrowFrameError<T>(_ expression: @autoclosure () throws -> T,
                                           file: StaticString = #file,
                                           line: UInt = #line) {
-        assertThrow(expression, errorType: AssertFrameViewError.self, file: file, line: line)
+        assertThrow(try expression(), errorType: AssertFrameViewError.self, file: file, line: line)
     }
 
     private func assertThrow<T, E>(_ expression: @autoclosure () throws -> T,
                                    errorType: E.Type,
                                    file: StaticString = #file,
                                    line: UInt = #line) {
-        XCTAssertThrowsError(expression, file: file, line: line) { (error) in
+        XCTAssertThrowsError(try expression(), file: file, line: line) { (error) in
             XCTAssert(
                 error is E,
                 "An error is thrown but is not of type \(String(describing: E.self))",

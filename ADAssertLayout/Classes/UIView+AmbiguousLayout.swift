@@ -17,7 +17,11 @@ public struct AmbiguousLayoutError: LocalizedError {
     // MARK: - LocalizedError
 
     public var errorDescription: String? {
-        return "View has ambiguous layout. This probably means you have not added enough constraints to your view. View: \(view.ad_viewName)"
+        return [
+            "View has ambiguous layout.",
+            "This probably means you have not added enough constraints to your view.",
+            "View: \(view.ad_viewName)"
+        ].joined(separator: " ")
     }
 }
 

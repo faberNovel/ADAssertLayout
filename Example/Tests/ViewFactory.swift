@@ -11,7 +11,7 @@ import UIKit
 
 class ErrorView: UIView {}
 
-class ViewFactory {
+enum ViewFactory {
 
     static func createNoProblemsView() -> UIView {
         let view1 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0))

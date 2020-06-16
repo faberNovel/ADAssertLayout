@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 import ADAssertLayout
 
+// swiftlint:disable implicitly_unwrapped_optional
+
 class SubviewOverlapTests: XCTestCase {
 
     private var superView: UIView!
@@ -163,7 +165,7 @@ class SubviewOverlapTests: XCTestCase {
 
     // MARK: - Private
 
-    private func assertOverlapingError(_ f: @autoclosure () throws -> (), view1: UIView, view2: UIView) {
+    private func assertOverlapingError(_ f: @autoclosure () throws -> Void, view1: UIView, view2: UIView) {
         do {
             try f()
         } catch {

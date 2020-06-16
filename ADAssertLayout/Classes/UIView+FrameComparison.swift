@@ -52,6 +52,7 @@ extension UIView {
         if ad_isLeftToRightLayoutDirection {
             return abs(bounds.origin.x - otherViewBounds.origin.x) <= UIView.ad_epsilon
         } else {
+            // swiftlint:disable:next line_length
             return abs(bounds.origin.x + bounds.width - otherViewBounds.origin.x - otherViewBounds.width) <= UIView.ad_epsilon
         }
     }
@@ -59,6 +60,7 @@ extension UIView {
     public func ad_isTrailingAligned(with otherView: UIView) -> Bool {
         let otherViewBounds = convert(otherView.bounds, from: otherView)
         if ad_isLeftToRightLayoutDirection {
+            // swiftlint:disable:next line_length
             return abs(bounds.origin.x + bounds.width - otherViewBounds.origin.x - otherViewBounds.width) <= UIView.ad_epsilon
         } else {
             return abs(bounds.origin.x - otherViewBounds.origin.x) <= UIView.ad_epsilon
@@ -72,6 +74,7 @@ extension UIView {
 
     public func ad_isBottomAligned(with otherView: UIView) -> Bool {
         let otherViewBounds = convert(otherView.bounds, from: otherView)
+        // swiftlint:disable:next line_length
         return abs(bounds.origin.y + bounds.height - otherViewBounds.origin.y - otherViewBounds.height) <= UIView.ad_epsilon
     }
 
