@@ -30,6 +30,16 @@ Linting
 fastlane ci_check
 ```
 CI Check
+### prepare_release
+```
+fastlane prepare_release
+```
+Release a new version
+### publish_release
+```
+fastlane publish_release
+```
+
 
 ----
 
