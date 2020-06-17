@@ -39,7 +39,6 @@ public struct AssertFrameViewError: LocalizedError {
     }
 }
 
-
 extension UIView {
 
     /// Ensures that `self` is within the bounds of its superview.

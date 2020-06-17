@@ -1,16 +1,23 @@
 PODS:
   - ADAssertLayout (0.1.1)
+  - SwiftLint (0.39.1)
 
 DEPENDENCIES:
   - ADAssertLayout (from `../`)
+  - SwiftLint (~> 0.39)
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
 
 EXTERNAL SOURCES:
   ADAssertLayout:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ADAssertLayout: 16cbedb793805d416fecbf1291618a5c5f89ae13
+  ADAssertLayout: 8895a75161560c545314849baf3fcf06779a531f
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 5c95cdd12afa3145ccd90eb33c5b8913b5357d6c
+PODFILE CHECKSUM: 5593091a12f892e08e217e45613d4ea5538e3da9
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

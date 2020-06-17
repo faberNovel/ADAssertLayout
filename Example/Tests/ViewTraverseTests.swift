@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 @testable import ADAssertLayout
 
+// swiftlint:disable implicitly_unwrapped_optional
+
 class ViewTraverseTests: XCTestCase {
 
     private var superView: UIView!
@@ -45,11 +47,12 @@ class ViewTraverseTests: XCTestCase {
     func testRecursiveTraverseWithStop() {
         var views = Set<UIView>()
         superView.ad_recursiveTraverseViewHierarchy(
-            traverseSubviews: { $0 != subview }
-        ) { view in
-            XCTAssertFalse(views.contains(view))
-            views.insert(view)
-        }
+            traverseSubviews: { $0 != subview },
+            block: { view in
+                XCTAssertFalse(views.contains(view))
+                views.insert(view)
+            }
+        )
         XCTAssertTrue(views.contains(superView))
         XCTAssertTrue(views.contains(subview))
         XCTAssertEqual(views.count, 2)
@@ -58,11 +61,12 @@ class ViewTraverseTests: XCTestCase {
     func testRecursiveTraverseWithStopInner() {
         var views = Set<UIView>()
         superView.ad_recursiveTraverseViewHierarchy(
-            traverseSubviews: { $0 != innerSubview1 }
-        ) { view in
-            XCTAssertFalse(views.contains(view))
-            views.insert(view)
-        }
+            traverseSubviews: { $0 != innerSubview1 },
+            block: { view in
+                XCTAssertFalse(views.contains(view))
+                views.insert(view)
+            }
+        )
         XCTAssertTrue(views.contains(superView))
         XCTAssertTrue(views.contains(subview))
         XCTAssertTrue(views.contains(innerSubview1))

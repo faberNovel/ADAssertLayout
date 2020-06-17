@@ -11,6 +11,8 @@ import UIKit
 import XCTest
 @testable import ADAssertLayout
 
+// swiftlint:disable implicitly_unwrapped_optional
+
 class ViewWithinSuperviewBoundsTests: XCTestCase {
 
     private var superView: UIView!
@@ -112,7 +114,7 @@ class ViewWithinSuperviewBoundsTests: XCTestCase {
 
     // MARK: - Private
 
-    private func assertFrameError(_ f: @autoclosure () throws -> (), _ reason: AssertFrameViewError.Reason) {
+    private func assertFrameError(_ f: @autoclosure () throws -> Void, _ reason: AssertFrameViewError.Reason) {
         do {
             try f()
         } catch {
