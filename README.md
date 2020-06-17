@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
 [![License](https://img.shields.io/cocoapods/l/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
 [![Platform](https://img.shields.io/cocoapods/p/ADAssertLayout.svg?style=flat)](https://cocoapods.org/pods/ADAssertLayout)
+![](https://github.com/faberNovel/ADAssertLayout/workflows/CI/badge.svg)
 
 ADAssertLayout is a set of helpers to make layout assertions on `UIView`. The project is a Swift port of LinkedIn library [LayoutTest-iOS](https://github.com/linkedin/LayoutTest-iOS).
 
