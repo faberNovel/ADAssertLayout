@@ -30,7 +30,6 @@ lane :prepare_release do |options|
   target_version = options[:version]
   UI.abort_with_message! "The version is missing. Use `fastlane prepare_release version:{version_number}`." if target_version.nil?
 
-  ensure_git_branch(branch: 'develop')
   ensure_git_status_clean
 
   next unless UI.confirm("Is your CHANGELOG up to date?")

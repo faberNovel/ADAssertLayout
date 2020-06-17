@@ -39,7 +39,7 @@ Release a new version
 ```
 fastlane publish_release
 ```
-
+Publish release
 
 ----
 
