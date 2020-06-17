@@ -24,7 +24,7 @@ ADAssertLayout is a set of helpers to make layout assertions on `UIView`. The pr
 ## Requirements
 
 - iOS 9.0+
-- Swift 4.2
+- Swift 5.1
 
 ## Installation
 
@@ -65,7 +65,7 @@ $ pod install
 
 ## Credits
 
-ADAssertLayout is owned and maintained by [Fabernovel Technologies](https://technologies.fabernovel.com/). You can follow us on Twitter at [@applidium](https://twitter.com/applidium).
+ADAssertLayout is owned and maintained by [Fabernovel](https://www.fabernovel.com/). You can follow us on Twitter at [@Fabernovel](https://twitter.com/FabernovelTech).
 
 ## License
 
