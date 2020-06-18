@@ -27,10 +27,10 @@ end
 
 desc "Release a new version"
 lane :prepare_release do |options|
-  target_version = options[:version]
-  UI.abort_with_message! "The version is missing. Use `fastlane prepare_release version:{version_number}`." if target_version.nil?
-
+  ensure_git_branch(branch: 'release/*')
   ensure_git_status_clean
+
+  target_version = target_version_from_branch
 
   next unless UI.confirm("Is your CHANGELOG up to date?")
   update_changelog(target_version)
@@ -49,14 +49,29 @@ lane :publish_release do
     section_identifier: "[#{target_version}]"
   )
   set_github_release(
-    repository_name: "faberNovel/ADAssertLayout",
+    repository_name: ENV["REPO"],
     api_token: ENV["GITHUB_TOKEN"],
     name: "v#{target_version}",
     tag_name: "v#{target_version}",
-    description: changelog
+    description: changelog,
+    commitish: "master"
   )
 
   pod_push
+end
+
+desc "Create release PR"
+lane :create_release_pr do
+  ensure_git_branch(branch: 'release/*')
+
+  ["master", "develop"].each do |base|
+    create_pull_request(
+      api_token: ENV["GITHUB_TOKEN"],
+      repo: ENV["REPO"],
+      title: "Release #{target_version_from_branch}",
+      base: base
+    )
+  end
 end
 
 #####################################################
@@ -89,4 +104,8 @@ def bump_podspec(target_version)
     path: podspec_path,
     message: "Bump to #{target_version}"
   )
+end
+
+def target_version_from_branch
+  git_branch.gsub(/release\/[A-Za-z]*/, "")
 end
