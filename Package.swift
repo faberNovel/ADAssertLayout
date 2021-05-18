@@ -10,6 +10,7 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "ADAssertLayout")
+			name: "ADAssertLayout",
+			path: "ADAssertLayout")
 	]
 )
