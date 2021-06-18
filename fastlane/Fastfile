@@ -1,3 +1,5 @@
+skip_docs
+
 desc "Run all unit tests"
 lane :tests do
   scan(

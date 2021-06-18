@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// swiftlint:disable cyclomatic_complexity
+
 extension UIView {
 
     /// Run a default layout test suite, based on the context provided.
