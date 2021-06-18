@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Configuration object that defines the behavior of a layout test.
 ///
